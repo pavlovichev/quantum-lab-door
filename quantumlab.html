@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квантовая лаборатория | Вход</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a12;
+            --bg-panel: #121220;
+            --accent: #4d7df7;
+            --text: #e0e0ff;
+            --highlight: #69db7c;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            max-width: 100vw;
+        }
+        
+        header {
+            padding: 1.5rem;
+            background: var(--bg-panel);
+            text-align: center;
+            border-bottom: 1px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .lab-door {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            background: linear-gradient(to bottom, #000010, #04041a);
+        }
+        
+        .module {
+            background: var(--bg-panel);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            transition: transform 0.3s;
+        }
+        
+        .module:hover {
+            transform: translateX(5px);
+        }
+        
+        h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .module-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .circuit-diagram {
+            flex: 1;
+            min-width: 300px;
+            background: #1a1a2e;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #303050;
+        }
+        
+        .description {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        pre {
+            background: #1a1a2e;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border: 1px solid #303050;
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #3a6bd6;
+        }
+        
+        .equipment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .equipment-item {
+            background: #1a1a2e;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #303050;
+            text-align: center;
+        }
+        
+        footer {
+            padding: 1rem;
+            text-align: center;
+            background: var(--bg-panel);
+            border-top: 1px solid var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .module-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>КВАНТОВАЯ ЛАБОРАТОРИЯ</h1>
+            <p>Дверь в мир гибридных аналого-цифровых систем</p>
+        </header>
+        
+        <main class="lab-door">
+            <!-- Модуль 1: Аналоговые RC-цепи -->
+            <section class="module">
+                <h2>Аналоговые RC-цепи</h2>
+                <div class="module-content">
+                    <div class="circuit-diagram">
+                        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Простая схема RC-цепи -->
+                            <rect x="10" y="40" width="40" height="20" fill="#555"/>
+                            <line x1="50" y1="50" x2="80" y2="50" stroke="#4d7df7" stroke-width="2"/>
+                            <circle cx="100" cy="50" r="15" fill="none" stroke="#4d7df7" stroke-width="2"/>
+                            <line x1="115" y1="50" x2="150" y2="50" stroke="#4d7df7" stroke-width="2"/>
+                            <text x="25" y="55" fill="white" font-size="10">R</text>
+                            <text x="95" y="55" fill="white" font-size="10">C</text>
+                        </svg>
+                    </div>
+                    <div class="description">
+                        <p>Фильтрация и обработка аналоговых сигналов в реальном времени. Используется как основа для квантовой адаптации.</p>
+                        <pre>// Пример кода обработки
+from scipy import signal
+import numpy as np
+
+def rc_filter(input_signal, R=1, C=1):
+    b = [1]
+    a = [R*C, 1]
+    return signal.lfilter(b, a, input_signal)</pre>
+                        <div class="equipment-list">
+                            <div class="equipment-item">Осциллограф</div>
+                            <div class="equipment-item">Генератор сигналов</div>
+                            <div class="equipment-item">RC-наборы</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Модуль 2: Виртуальные RC-цепи -->
+            <section class="module">
+                <h2>Виртуальные RC-цепи</h2>
+                <div class="module-content">
+                    <div class="circuit-diagram">
+                        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Схема цифровой обработки -->
+                            <rect x="20" y="30" width="60" height="40" fill="#1a1a2e" stroke="#4d7df7" stroke-width="2"/>
+                            <text x="50" y="55" fill="#4d7df7" font-size="12">DSP</text>
+                            <path d="M10 50 H20 M80 50 H150" stroke="#4d7df7" stroke-width="2"/>
+                            <path d="M100 30 V70" stroke="#69db7c" stroke-width="2"/>
+                            <path d="M110 30 V70" stroke="#69db7c" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="description">
+                        <p>Цифровые двойники аналоговых цепей с возможностью динамической перестройки параметров.</p>
+                        <pre># Цифровая реализация
+import tensorflow as tf
+
+class VirtualRCLayer(tf.keras.layers.Layer):
+    def __init__(self, cutoff_freq):
+        super().__init__()
+        self.cutoff = tf.Variable(cutoff_freq)
+        
+    def call(self, inputs):
+        # Динамическая фильтрация
+        return tf_signal.lowpass_filter(inputs, self.cutoff)</pre>
+                        <div class="equipment-list">
+                            <div class="equipment-item">GPU сервер</div>
+                            <div class="equipment-item">TensorFlow DSP</div>
+                            <div class="equipment-item">Адаптивные фильтры</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Модуль 3: Квантовое зеркало -->
+            <section class="module">
+                <h2>Квантовое зеркало</h2>
+                <div class="module-content">
+                    <div class="circuit-diagram">
+                        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Схема квантового зеркала -->
+                            <circle cx="50" cy="50" r="20" fill="none" stroke="#4d7df7" stroke-width="2"/>
+                            <path d="M70 50 L130 50" stroke="#4d7df7" stroke-width="2" stroke-dasharray="5,5"/>
+                            <path d="M130 30 L150 50 L130 70 Z" fill="#1a1a2e" stroke="#69db7c" stroke-width="2"/>
+                            <path d="M150 30 L170 50 L150 70 Z" fill="#1a1a2e" stroke="#69db7c" stroke-width="2"/>
+                            <text x="45" y="55" fill="white" font-size="10">|ψ⟩</text>
+                        </svg>
+                    </div>
+                    <div class="description">
+                        <p>Технология анализа и восстановления сигналов через квантовые принципы. Отслеживает изменения в цифровых системах.</p>
+                        <pre># Симуляция на 7 кубитах
+from qiskit import QuantumCircuit
+
+qc = QuantumCircuit(7)
+qc.h(range(7))  # Создаем суперпозицию
+qc.barrier()
+# Слой "отражения"
+qc.append(quantum_mirror_gate(), range(7))</pre>
+                        <div class="equipment-list">
+                            <div class="equipment-item">Квантовый симулятор</div>
+                            <div class="equipment-item">Анализатор ошибок</div>
+                            <div class="equipment-item">Модуль ML</div>
+                        </div>
+                        <button class="btn">Войти в лабораторию</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Модуль 4: Применение -->
+            <section class="module">
+                <h2>Применение в кибербезопасности и ML</h2>
+                <div class="module-content">
+                    <div class="circuit-diagram">
+                        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Иконки применения -->
+                            <rect x="20" y="20" width="40" height="40" fill="none" stroke="#69db7c" stroke-width="2"/>
+                            <path d="M30 30 L50 50 M30 50 L50 30" stroke="#69db7c" stroke-width="2"/>
+                            <circle cx="100" cy="40" r="15" fill="none" stroke="#4d7df7" stroke-width="2"/>
+                            <path d="M100 25 L100 55 M85 40 L115 40" stroke="#4d7df7" stroke-width="2"/>
+                            <path d="M140 20 L180 20 L180 60 L140 60 Z" fill="none" stroke="#e0e0ff" stroke-width="2"/>
+                            <path d="M150 30 L170 30 L170 50 L150 50 Z" fill="#1a1a2e" stroke="#e0e0ff" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="description">
+                        <p>Гибридные системы для защиты данных и ускоренного машинного обучения.</p>
+                        <pre># Квантовая защита данных
+def quantum_encrypt(data):
+    qc = QuantumCircuit(10)
+    qc.initialize(encode_data(data))
+    qc.h(range(10))  # Запутывание
+    return qc</pre>
+                        <div class="equipment-list">
+                            <div class="equipment-item">Крипто-модуль</div>
+                            <div class="equipment-item">QNN процессор</div>
+                            <div class="equipment-item">Анализатор угроз</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2023 Квантовая лаборатория | Дверь в будущее вычислений</p>
+        </footer>
+    </div>
+</body>
+</html>
